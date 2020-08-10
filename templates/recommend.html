@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    <h1>@thor!</h1>
+
+  {% if t=='unavailable' %}
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h3 style="color:rgb(0, 102, 255)">Pardon! We even tried checking for spell errors! Either you mis-spelled the movie name badly or it is not available in our database.</h3>
+    <h3 style="color:rgb(0, 102, 255)">Please try with some other movie...!</h3>
+  </div>
+
+  {% else %}
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h3 style="color:#FF0000(0, 102, 255)">You entered <strong>'{{movie|capitalize}}'</strong></h3>
+    <h3 style="color:rgb(0, 102, 255)">Please find the list of reommended movies!!!</h3>
+  </div>
+
+    <ul class="list-group list-group-flush">
+      {% for m in r %}
+        <li class="list-group-item" style="color:rgb(0, 179, 0)"><strong>{{m|capitalize}}</strong></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endblock %}
